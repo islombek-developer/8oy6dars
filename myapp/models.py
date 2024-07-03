@@ -2,6 +2,7 @@ from django.db import models
 
 class Area(models.Model):
     name = models.CharField(max_length=150)
+    auther = models.CharField(max_length=100)
 
     def __str__(self) -> str:
         return self.name
@@ -10,6 +11,7 @@ class Company(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
     year = models.DateField(auto_now_add=True)
+    auther = models.CharField(max_length=100)
     area = models.ForeignKey(Area,on_delete=models.CASCADE)
 
     def __str__(self) -> str:
@@ -23,6 +25,8 @@ class Building(models.Model):
     floor = models.IntegerField()
     childrens_playground = models.CharField(max_length=100)
     lift = models.IntegerField()
+    auther = models.CharField(max_length=100)
+
 
     def __str__(self) -> str:
         return self.name
